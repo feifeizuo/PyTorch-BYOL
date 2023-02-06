@@ -1,8 +1,8 @@
 network:
-  name: resnet18
+  name: resnet50
 
   # Specify a folder containing a pre-trained model to fine-tune. If training from scratch, pass None.
-  fine_tune_from: 'resnet-18_40-epochs'
+  fine_tune_from: False #'resnet-18_40-epochs'
 
   projection_head:
     mlp_hidden_size: 512
@@ -10,7 +10,7 @@ network:
 
 data_transforms:
   s: 1
-  input_shape: (96,96,3)
+  input_shape: (204,276,3)
 
 trainer:
   batch_size: 64

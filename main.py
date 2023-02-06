@@ -21,9 +21,8 @@ def main():
 
     data_transform = get_simclr_data_transforms(**config['data_transforms'])
 
-    train_dataset = datasets.STL10('/home/thalles/Downloads/', split='train+unlabeled', download=True,
-                                   transform=MultiViewDataInjector([data_transform, data_transform]))
-
+    # Load the ImageFolder dataset
+    train_dataset = datasets.ImageFolder(root=r'D:\Datasets\ceph_unlabeled\1', transform=MultiViewDataInjector([data_transform, data_transform]))
     # online network
     online_network = ResNet18(**config['network']).to(device)
     pretrained_folder = config['network']['fine_tune_from']
